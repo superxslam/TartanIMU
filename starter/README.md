@@ -157,6 +157,26 @@ Upload the resulting CSV on the competition's **Submit Predictions** page.
 | `tartanimu_submission.py` | released pretrained baseline → submission |
 | `kaggle_metric_tartanimu_score.py` | the exact leaderboard metric (for reference / val self-scoring) |
 | `starter.ipynb` | notebook walking through data → prediction → submission |
+| `REPORT_TEMPLATE.md` | **the report every team submits with its code and weights** |
+
+## After your predictions: code, weights, and report
+
+Uploading a CSV puts you on the leaderboard; it does not finalize your
+placement. **A placement becomes final only after we receive your code,
+weights, and report and audit them** — so plan for that package the same way
+you plan for the submission itself.
+
+Fill in **[`REPORT_TEMPLATE.md`](REPORT_TEMPLATE.md)** and send it with the
+checkpoint, the training code at the exact commit, the config file, the
+inference script, and your environment. A private link or an archive is fine;
+we do not redistribute code or weights, and every submitting team is credited
+in the challenge analysis paper.
+
+**Due 2026-09-20 23:55 UTC**, the same moment the competition closes — earlier
+is much better. One concrete tip: the template's *"What did NOT work"* section
+is the one we value most and the one that is nearly impossible to reconstruct a
+month after you stop experimenting. Keep that list as you go and it costs you
+almost nothing.
 
 ## Pretrained model
 
