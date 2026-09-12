@@ -225,6 +225,14 @@ The challenge evaluates one shared model across car, dog/legged, drone, and
 human motion. Given a 1-second IMU window, the model predicts mean body-frame
 velocity `(vx, vy, vz)`.
 
+> [!IMPORTANT]
+> **Participating teams: your code, weights, and report are due at the same
+> moment the competition closes — 2026-09-20 23:55 UTC.** A placement becomes
+> final only after we receive those artifacts and audit them. Please send them
+> as soon as your final submission is chosen rather than on the last evening.
+> Use [`starter/REPORT_TEMPLATE.md`](starter/REPORT_TEMPLATE.md) for the report,
+> and see [Final Submission](#final-submission-code-weights-and-report) below.
+
 | Resource | Purpose |
 | --- | --- |
 | [Kaggle competition](https://www.kaggle.com/competitions/tartan-imu-challenge-iros2026) | Join the challenge and check the current schedule, rules, submissions, and leaderboard |
@@ -252,6 +260,7 @@ which makes the score dimensionless and pins an all-zero submission to exactly
 | `starter/baseline_submission.py` | Valid zero or constant baseline |
 | `starter/tartanimu_submission.py` | Released model inference |
 | `starter/kaggle_metric_tartanimu_score.py` | Leaderboard metric for validation |
+| `starter/REPORT_TEMPLATE.md` | Team report template for the final submission |
 
 Predictions must come from one model with one shared set of weights.
 Platform-specific internal routing is allowed, but four separately selected
@@ -260,6 +269,46 @@ expert models are not.
 The released weights and full model card are available at
 [`Tartan-IMU/TartanIMU`](https://huggingface.co/Tartan-IMU/TartanIMU). Review
 the model card for artifact-specific terms and known limitations.
+
+### Final Submission: Code, Weights, and Report
+
+Predictions alone do not settle the ranking. As stated in the rules from the
+start, **a placement becomes final only after we receive a team's code,
+weights, and report and audit them** — teams that do not submit these will not
+appear in the final ranking. This applies equally to every team.
+
+Please send us:
+
+1. **Final checkpoint(s)** for the submission you want ranked, plus the
+   submission ID it corresponds to and the score you expect. We re-run it and
+   compare.
+2. **Training code** at the exact commit that produced that checkpoint.
+3. **The exact config / hyper-parameters** used — the file, not a description.
+4. **The inference script** that turns the checkpoint into a submission CSV,
+   including any test-time processing.
+5. **Environment**: a lockfile, `requirements.txt`, or a container image.
+6. **The report**, written with
+   [`starter/REPORT_TEMPLATE.md`](starter/REPORT_TEMPLATE.md).
+
+A private repository link or an archive is fine. Artifacts are used for exactly
+two things — verifying the final ranking, and the challenge analysis paper — and
+we do not redistribute code or weights. Reach the organizers through the
+[Kaggle competition](https://www.kaggle.com/competitions/tartan-imu-challenge-iros2026)
+discussion tab or the [challenge site](https://superodometry.com/imuchallenge/)
+to arrange a private hand-off.
+
+**Why we ask, beyond fairness.** We are writing an analysis paper on what this
+challenge collectively discovered, and it feeds directly into the next
+generation of the benchmark. We can already decompose *what* each team achieved,
+per platform and per error term — but not *how*. Your report is the difference
+between a leaderboard and a usable body of knowledge, and **every team that
+submits is credited in that paper.**
+
+**Deadline: 2026-09-20 23:55 UTC**, the same moment the competition closes; see
+the Kaggle competition page for the authoritative schedule. Earlier is better
+for us and better for you — in particular, the template's *"What did NOT work"*
+section is the one teams find hardest to reconstruct a month later and the one
+we value most, so start that list now rather than writing it in October.
 
 ## Repository Structure
 
@@ -280,7 +329,7 @@ TartanIMU/
 |-- example/
 |   |-- inference_example.py
 |   `-- minimal_example.py
-|-- starter/             # Challenge metric, baselines, and notebook
+|-- starter/             # Challenge metric, baselines, notebook, report template
 |-- tests/unit/          # Unit and characterization tests
 |-- tools/               # Dataset, analysis, and plotting utilities
 |-- main_net.py
